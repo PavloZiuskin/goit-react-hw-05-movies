@@ -3,7 +3,8 @@ import { useEffect,useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByQuery } from "services/servicesApi";
 import { ContainerHeader } from "components/SharedLouaot/Nav.styled";
-import {TitlePage} from '../Home/Home.styled'
+import { TitlePage } from '../Home/Home.styled';
+import { Form } from "./Movies.styled";
 
 
 function Movies() {
@@ -27,10 +28,10 @@ function Movies() {
     return (
         <ContainerHeader>
             <TitlePage>Movies</TitlePage>
-            <form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <input type='text' name='query' value={value} onChange={(e)=>{setValue(e.target.value)} } />
-                <button type='submit'>Submit</button>
-            </form>
+                <button type='submit'>Search</button>
+            </Form>
             <MoviesList movies={movies } />
 
         </ContainerHeader>
