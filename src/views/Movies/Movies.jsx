@@ -2,9 +2,11 @@ import MoviesList from "components/MoviesList/MoviesList";
 import { useEffect,useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMoviesByQuery } from "services/servicesApi";
+import { ContainerHeader } from "components/SharedLouaot/Nav.styled";
+import {TitlePage} from '../Home/Home.styled'
 
 
-export default function Movies() {
+function Movies() {
     const [params, setParams] = useSearchParams();
     const [movies, setMovies] = useState([])
     
@@ -23,15 +25,16 @@ export default function Movies() {
         
     }
     return (
-        <div>
-            <h1>Movies</h1>
+        <ContainerHeader>
+            <TitlePage>Movies</TitlePage>
             <form onSubmit={handleSubmit}>
                 <input type='text' name='query' value={value} onChange={(e)=>{setValue(e.target.value)} } />
                 <button type='submit'>Submit</button>
             </form>
             <MoviesList movies={movies } />
 
-        </div>
+        </ContainerHeader>
         
     )
-}
+};
+export default Movies;

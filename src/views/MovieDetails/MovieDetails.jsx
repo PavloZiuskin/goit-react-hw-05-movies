@@ -2,7 +2,7 @@ import { useParams, useLocation,useNavigate, NavLink, Outlet } from "react-route
 import { useState, useEffect, Suspense } from "react";
 import { getMoviesDetaisById } from "services/servicesApi";
 export const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w500';
-export default function MovieDetails() {
+ function MovieDetails() {
     const location = useLocation();
     const navigate = useNavigate();
     const [movie, setMovie] = useState(null);
@@ -34,4 +34,5 @@ export default function MovieDetails() {
         </div>
         
     )
-}
+};
+export default MovieDetails;

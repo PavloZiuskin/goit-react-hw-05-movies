@@ -1,16 +1,20 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import {Suspense} from "react";
+import { ContainerHeader,Header,Navigate,StyledNavLink } from "./Nav.styled";
 
 export default function Navigation(){
     return (
-        <div>
-            <nav>
-                <NavLink to='/' >Home</NavLink>
-                <NavLink to='/movies' >Movies</NavLink>
-            </nav>
+        <ContainerHeader>
+            <Header>
+                <Navigate>
+                    <StyledNavLink to='/' >Home</StyledNavLink>
+                    <StyledNavLink to='/movies' >Movies</StyledNavLink>
+                </Navigate>
+            </Header>
+            
             <Suspense fallback={<p>Loading ...</p>} >
                 <Outlet />
             </Suspense>
-        </div>
+        </ContainerHeader>
     )
 }

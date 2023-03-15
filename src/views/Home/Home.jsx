@@ -1,18 +1,21 @@
 import { getTrendingMovies } from "services/servicesApi";
 import { useEffect,useState } from "react";
 import MoviesList from "components/MoviesList/MoviesList";
-export default function Home() {
+import { ContainerHeader } from "components/SharedLouaot/Nav.styled";
+import { TitlePage } from "./Home.styled";
+ function Home() {
     const[movies,setMovies]=useState([])
 
     useEffect(() => {
         getTrendingMovies().then(setMovies)
     },[])
     return (
-        <div>
-            <h1>Home</h1>
+        <ContainerHeader>
+            <TitlePage>Home</TitlePage>
             <MoviesList movies={movies } />
-        </div>
+        </ContainerHeader>
         
 
     )
-}
+};
+export default Home;

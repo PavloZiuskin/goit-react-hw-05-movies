@@ -7,27 +7,47 @@ const agent = axios.create({
 });
 
 export async function getMoviesByQuery(query) {
-  const movies = await agent.get('search/movie', {
-    params: {
-      query,
-    },
-  });
-  return movies.data.results;
+  try {
+    const movies = await agent.get('search/movie', {
+      params: {
+        query,
+      },
+    });
+    return movies.data.results;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 export async function getTrendingMovies() {
-  const movies = await agent.get('trending/movie/day');
-  return movies.data.results;
+  try {
+    const movies = await agent.get('trending/movie/day');
+    return movies.data.results;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 
 export async function getMoviesDetaisById(id) {
-  const movies = await agent.get(`movie/${id}`);
-  return movies.data;
+  try {
+    const movies = await agent.get(`movie/${id}`);
+    return movies.data;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 export async function getCast(id) {
-  const actors = await agent.get(`movie/${id}/credits`);
-  return actors.data.cast;
+  try {
+    const actors = await agent.get(`movie/${id}/credits`);
+    return actors.data.cast;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
 export async function getReviews(id) {
-  const actors = await agent.get(`movie/${id}/reviews`);
-  return actors.data.results;
+  try {
+    const actors = await agent.get(`movie/${id}/reviews`);
+    return actors.data.results;
+  } catch (error) {
+    console.log(error.message);
+  }
 }
